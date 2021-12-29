@@ -10,7 +10,7 @@
   environment: "{{ proxy_disable_env }}"
   roles:
     - { role: kubespray-defaults }
-    - { role: bastion-ssh-config, tags: ["localhost", "bastion"] }
+#    - { role: bastion-ssh-config, tags: ["localhost", "bastion"] }
 
 - hosts: k8s_cluster
   any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
@@ -18,7 +18,7 @@
   environment: "{{ proxy_disable_env }}"
   roles:
     - { role: kubespray-defaults }
-    - { role: offline-pretask, when: is_this_offline }
+#    - { role: offline-pretask, when: is_this_offline }
 
 - hosts: k8s_cluster:etcd
   strategy: linear
@@ -119,8 +119,8 @@
   environment: "{{ proxy_disable_env }}"
   roles:
     - { role: kubespray-defaults }
-    - { role: kubernetes-apps, tags: apps }
-    - { role: kubernetes/postinstall, when: "dns_mode != 'none' and api_server_dns_cfwhn", tags: dns-policy-cfwhn }
+#    - { role: kubernetes-apps, tags: apps }
+#    - { role: kubernetes/postinstall, when: "dns_mode != 'none' and api_server_dns_cfwhn", tags: dns-policy-cfwhn }
 
 - hosts: kube_control_plane
   gather_facts: False

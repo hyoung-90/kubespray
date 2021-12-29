@@ -17,9 +17,9 @@ bin_dir: /usr/local/bin
 
 
 ## External LB example config
-apiserver_loadbalancer_domain_name: "10.0.10.50"
+apiserver_loadbalancer_domain_name: "kubernetes-elb-devtest-196542906.ap-southeast-2.elb.amazonaws.com"
 loadbalancer_apiserver:
-  address: 10.0.10.50
+#  address: 10.0.10.50
   port: 6443
 
 ## Internal loadbalancers for apiservers
@@ -43,8 +43,8 @@ loadbalancer_apiserver_healthcheck_port: 8081
 
 ## Upstream dns servers
 upstream_dns_servers:
-  - 192.168.1.150
-#   - 8.8.4.4
+#  - 192.168.1.150
+   - 8.8.4.4
 
 ## There are some changes specific to the cloud providers
 ## for instance we need to encapsulate packets with some network plugins
